@@ -19,7 +19,7 @@
 								<tr>
 									<th>id</th>
 									<th>name</th>
-									<th>department</th>
+									<th>departmentId</th>
 									<th>action</th>
 
 								</tr>
@@ -28,7 +28,7 @@
 								<tr th:each="emp:${employees}">
 									<td >[[${emp.getId()}]]</td>
 									<td>[[${emp.getName()}]]</td>
-									<td>[[${emp.getDepartment().departmentName}]]</td>
+									<td>[[${emp.getDepartmentId()}]]</td>
 									<td>
 										<button class="btn btn-sm btn-primary">edit</button>
 										<button class="btn btn-sm btn-danger">remove</button>

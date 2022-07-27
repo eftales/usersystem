@@ -1,28 +1,38 @@
 package com.eftales.usersystem.dao;
 
 
+import com.eftales.usersystem.mapper.DepartmentMapper;
 import com.eftales.usersystem.pojo.Department;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
 public class DepartmentDao {
-    private static Map<Integer, Department> map = new HashMap<>();
-    static {
-        map.put(1,new Department(1,"1"));
-        map.put(2,new Department(2,"2"));
-        map.put(3,new Department(3,"3"));
-        map.put(4,new Department(4,"4"));
-    }
+    @Autowired
+    DepartmentMapper departmentMapper;
 
     public Collection<Department> getDepartments(){
+
+        Map<Integer, Department> map = new HashMap<>();
+        List<Department> departments = departmentMapper.queryDepartmentList();
+        departments.forEach((e)->{
+            map.put(e.getId(),e);
+        });
         return map.values();
     }
 
     public Department getDepartmentByID(int id){
-        return map.get(id);
+        Department department = departmentMapper.queryDepartmentById();
+        return department;
     }
 }
+
