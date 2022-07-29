@@ -1,0 +1,17 @@
+s1:
+  age: ${random.int}
+  id: ${random.int}
+  name: ${random.uuid}
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.26.142:3306/sqltest?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.eftales.usersystem.pojo
+  mapper-locations: classpath:mybatis/mapper/*.xml
