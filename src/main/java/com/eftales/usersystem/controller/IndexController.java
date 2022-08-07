@@ -9,7 +9,7 @@ public class IndexController {
 
     @RequestMapping({"/","/index.html","/index"})
     public String index(Model model){
-//        model.addAttribute("msg","hello,index");
+        model.addAttribute("msg","hello,index");
         return "index";
     }
 }

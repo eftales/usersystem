@@ -1,3 +1,4 @@
+create database  if not exists sqltest;
 use sqltest;
 drop table if exists `user`;
 create table `user`(
@@ -8,6 +9,8 @@ create table `user`(
 
 insert into `user` values(1,'zhangsan','111');
 insert into `user` (`id`,`name`,`password`) values(2,'lisi','222');
+insert into `user` (`id`,`name`,`password`) values(3,'admin','123');
+insert into `user` (`id`,`name`,`password`) values(4,'guest','123');
 
 drop table if exists department;
 create table `department` (
