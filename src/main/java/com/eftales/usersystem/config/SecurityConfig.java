@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 首页所有人可以访问，功能页只有有权限的人才能访问
         http.authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers("/test/*").permitAll()
                 .antMatchers("/dashboard").hasRole("admin");
 
         // 没有权限会跳转到登录页
